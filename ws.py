@@ -1,8 +1,8 @@
 # grabs the html content
 from urllib.request import urlopen as uReq
-import xml.etree.ElementTree as ET
 import bs4
 from bs4 import BeautifulSoup as soup
+import defusedxml.ElementTree
 
 
 # parse the html text
@@ -14,7 +14,7 @@ f = open(filename, "w")
 headers = "Title,Description,Location,Date Posted,Name,Number,Email,URL,Domain\n"
 
 
-tree = ET.parse('FILE NAME WITH THE LINKS.xml')
+tree = defusedxml.ElementTree.parse('FILE NAME WITH THE LINKS.xml')
 root = tree.getroot()
 
 f.write(headers)
